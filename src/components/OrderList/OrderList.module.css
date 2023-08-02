@@ -3,4 +3,6 @@
   align-items: center;
   width: 69%;
   background-color: #fff;
+  margin-bottom: 10rem;
+  box-shadow: 0.2rem 0.2rem 0.5rem rgba(0, 0, 0, 0.5);
 }

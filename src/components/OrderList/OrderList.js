@@ -8,6 +8,8 @@ const OrderList = () => {
       <OrderItem />
       <OrderItem />
       <OrderItem />
+      <OrderItem />
+      <OrderItem />
     </Wrapper>
   );
 };
