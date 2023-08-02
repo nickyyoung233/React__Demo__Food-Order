@@ -1,0 +1,36 @@
+.cargo-item {
+  width: 100%;
+  height: 5rem;
+  justify-content: space-between;
+  align-items: center;
+  padding-bottom: 0.5rem;
+  border-radius: 0;
+  border-bottom: 0.2rem solid #ab2f18;
+}
+.cargo-item .item-info {
+  width: 20%;
+}
+.cargo-item .item-info div {
+  align-items: center;
+  justify-content: space-between;
+}
+.cargo-item .item-info input {
+  width: 2rem;
+  text-align: center;
+  height: 100%;
+}
+.cargo-item .price {
+  color: #ab2f18;
+}
+
+.cargo-item .item-count {
+  justify-content: space-around;
+  width: 8rem;
+}
+.cargo-item .item-count .button {
+  width: 3rem;
+  min-width: 2rem;
+  color: #ab2f18;
+  background-color: #fff;
+  border: 0.1rem solid #ab2f18;
+}

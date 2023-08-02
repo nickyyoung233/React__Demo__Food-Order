@@ -4,6 +4,8 @@ demo for using react
 
 ## set structure for project
 
+## separate the components
+
 ## Q&A
 
 ### diff with space-around & space-between

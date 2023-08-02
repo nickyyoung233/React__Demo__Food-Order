@@ -14,6 +14,9 @@ li {
   text-decoration: none;
   list-style: none;
 }
+input {
+  outline-style: none;
+}
 
 body {
   width: 100%;
@@ -24,79 +27,9 @@ body {
   background-repeat: no-repeat;
 }
 
-.flex {
-  display: flex;
-  border-radius: 0.5rem;
-}
-
-.header {
-  justify-content: space-around;
-  align-items: center;
-  height: 6rem;
-  line-height: 6rem;
-  border-radius: 0;
-  background-color: antiquewhite;
-  margin-bottom: 10rem;
-}
-.cart-button {
-  justify-content: center;
-  width: 18rem;
-  height: 4rem;
-  line-height: 3rem;
-  background-color: #f0c040;
-  padding: 0.5rem;
-  font-size: 1rem;
-  cursor: pointer;
-}
-
 .background {
-  width: 100%;
   flex-direction: column;
   align-items: center;
-}
-.background .intro {
-  flex-direction: column;
-  align-items: center;
-  justify-content: space-evenly;
-  width: 40%;
-  height: 10rem;
-  background-color: #fff;
-  box-shadow: 0.2rem 0.2rem 0.5rem rgba(0, 0, 0, 0.5);
-  margin-bottom: 2rem;
-}
-.background .order-list {
-  flex-direction: column;
-  align-items: center;
-  width: 60%;
-  background-color: #fff;
-}
-.order-list .order-item {
-  width: 100%;
-  justify-content: space-between;
-  padding: 1rem;
-}
-.order-list .order-num {
-  flex-direction: column;
-  align-items: center;
-}
-.order-count {
-  text-align: center;
-  height: 2rem;
-  line-height: 2rem;
-  font-size: 1rem;
-}
-.order-count label {
-  font-weight: 600;
-  padding-right: 1rem;
-}
-.order-count input {
-  width: 3rem;
-  height: 100%;
-}
-.button {
-  width: 5rem;
-  height: 2rem;
-  border: none;
 }
 
 @media (min-width: 768px) {

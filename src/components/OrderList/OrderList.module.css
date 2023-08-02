@@ -1,0 +1,6 @@
+.order-list {
+  flex-direction: column;
+  align-items: center;
+  width: 69%;
+  background-color: #fff;
+}

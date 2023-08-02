@@ -1,0 +1,34 @@
+.order-item {
+  width: 100%;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1rem;
+}
+.order-item .order-info {
+  max-width: 20rem;
+}
+.order-info .price {
+  color: #ab2f18;
+  font-weight: 600;
+}
+.order-item .order-num {
+  width: 10rem;
+  height: 5rem;
+  flex-direction: column;
+  align-items: center;
+  justify-content: inherit;
+}
+.order-count {
+  text-align: center;
+  height: 2rem;
+  line-height: 2rem;
+  font-size: 1rem;
+}
+.order-count label {
+  font-weight: 600;
+  padding-right: 1rem;
+}
+.order-count input {
+  width: 3rem;
+  height: 100%;
+}

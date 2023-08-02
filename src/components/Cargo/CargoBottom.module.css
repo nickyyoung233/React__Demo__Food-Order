@@ -1,0 +1,7 @@
+.cargo-total {
+  justify-content: space-between;
+  font-size: 1rem;
+  font-weight: 600;
+  height: 3rem;
+  line-height: 3rem;
+}

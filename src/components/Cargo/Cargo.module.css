@@ -1,0 +1,25 @@
+.cargo {
+  position: absolute;
+  top: 15rem;
+  right: 50%;
+  transform: translateX(50%);
+  width: 50%;
+  padding: 1rem;
+  justify-content: center;
+  flex-direction: column;
+  background-color: #fff;
+  box-shadow: 0.2rem 0.2rem 0.5rem rgba(0, 0, 0, 0.5);
+}
+
+.cargo .buttons {
+  justify-content: end;
+}
+.cargo .buttons .button {
+  margin-left: 1rem;
+  background-color: antiquewhite;
+}
+.cargo .buttons .button:hover {
+  background-color: #f0c040;
+}
+
+
