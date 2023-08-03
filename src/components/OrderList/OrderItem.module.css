@@ -30,5 +30,6 @@
 }
 .order-count input {
   width: 3rem;
+  text-align: center;
   height: 100%;
 }
