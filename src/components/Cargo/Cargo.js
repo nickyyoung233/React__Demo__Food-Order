@@ -1,4 +1,5 @@
-import { Fragment } from "react";
+import { Fragment, useContext } from "react";
+import AmountContext from "../../context/amount-text";
 import ReactDOM from "react-dom";
 import Wrapper from "../UI/Wrapper";
 import Button from "../UI/Button";
@@ -6,13 +7,32 @@ import CargoItem from "./CargoItem";
 import CargoBottom from "./CargoBottom";
 import styles from "./Cargo.module.css";
 
-const Cargo = () => {
+const Cargo = ({ setCargo, list }) => {
+  const amountContext = useContext(AmountContext);
   const cargo = (
     <Wrapper className={styles.cargo}>
-      <CargoItem />
+      {list
+        .filter((item) => {
+          return amountContext.orderNum[item.id] > 0;
+        })
+        .map((item) => {
+          return (
+            <CargoItem
+              key={item.id}
+              title={item.title}
+              price={item.price}
+              id={item.id}
+            />
+          );
+        })}
       <CargoBottom />
       <Wrapper className={styles.buttons}>
-        <Button className={styles.button} type="button" btnName="关闭" />
+        <Button
+          onClick={() => setCargo(false)}
+          className={styles.button}
+          type="button"
+          btnName="关闭"
+        />
         <Button className={styles.button} type="submit" btnName="下单" />
       </Wrapper>
     </Wrapper>

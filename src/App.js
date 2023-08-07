@@ -1,3 +1,4 @@
+import { useState } from "react";
 import { AmountContextProvider } from "./context/amount-text";
 import Wrapper from "./components/UI/Wrapper";
 import Header from "./components/Header/Header";
@@ -32,17 +33,22 @@ function App() {
       id: "food4",
     },
   ];
+  const [showCargo, setCargo] = useState(false);
+  const setCargoState = (isShowing) => {
+    console.log("in");
+    setCargo(!!isShowing);
+  };
 
   return (
     <AmountContextProvider>
-      <Header />
+      <Header setCargo={setCargoState} />
 
       <Wrapper className="background">
         <Intro />
         <OrderList list={orderList} />
       </Wrapper>
 
-      {/* <Cargo /> */}
+      {showCargo && <Cargo setCargo={setCargoState} list={orderList} />}
     </AmountContextProvider>
   );
 }

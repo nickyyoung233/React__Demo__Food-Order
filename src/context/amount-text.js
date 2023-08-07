@@ -3,34 +3,69 @@ const AmountContext = React.createContext({
   totalMoney: 0,
   totalAmount: 0,
   orderNum: {},
+  orderMoney: {},
+  initOrderMoney: () => {},
+  addOrderNum: () => {},
+  declineOrderNum: () => {},
 });
 
 export const AmountContextProvider = ({ children }) => {
   const [totalMoney, setTotalMoney] = useState(0);
   const [totalAmount, setTotalAmount] = useState(0);
   const [orderNum, setOrderNum] = useState({});
-  const addOrderNumHandler = (key, num) => {
-    setOrderNum((pre) => {
-      if (typeof pre[key] != "undefined") pre[key] += num;
-      else pre[key] = num;
+  const [orderMoney, setOrderMoney] = useState({});
+  console.log("re-run");
+  const initOrderMoneyHandler = (id, money) => {
+    setOrderMoney((pre) => {
+      pre[id] = money;
       return pre;
     });
   };
-  const totalAmountHandler = (amount) => {
-    setTotalAmount(amount);
+  const addOrderNumHandler = (key, num) => {
+    console.log("add");
+    setOrderNum((pre) => {
+      let tempKey = typeof pre[key] != "undefined" ? pre[key] + num : num;
+      const newObj = { ...pre, [key]: tempKey };
+      return newObj;
+    });
   };
-  const totalMoneyHandler = (amount) => {
-    setTotalMoney(amount);
+  const declineOrderNumHandler = (key, num) => {
+    console.log("decline");
+    setOrderNum((pre) => {
+      let tempKey = pre[key] > 0 ? pre[key] - num : 0;
+      const newObj = { ...pre, [key]: tempKey };
+      return newObj;
+    });
   };
+  useEffect(() => {
+    setTotalAmount(() => {
+      let amount = 0;
+      for (const key in orderNum) {
+        amount += orderNum[key];
+      }
+      console.log("amount", amount);
+      return amount;
+    });
+    setTotalMoney(() => {
+      let money = 0;
+      for (const key in orderNum) {
+        money += orderMoney[key] * orderNum[key];
+      }
+      console.log("money", money);
+      return money;
+    });
+  }, [orderNum, orderMoney]);
+
   return (
     <AmountContext.Provider
       value={{
         totalMoney: totalMoney,
         totalAmount: totalAmount,
         orderNum: orderNum,
+        orderMoney: orderMoney,
+        initOrderMoney: initOrderMoneyHandler,
         addOrderNum: addOrderNumHandler,
-        setTotalAmount: totalAmountHandler,
-        setTotalMoney: totalMoneyHandler,
+        declineOrderNum: declineOrderNumHandler,
       }}
     >
       {children}

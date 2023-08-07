@@ -1,15 +1,21 @@
-import { useRef, useContext } from "react";
+import { useRef, useContext, useEffect } from "react";
 import AmountContext from "../../context/amount-text";
 import Wrapper from "../UI/Wrapper";
 import Button from "../UI/Button";
 import styles from "./OrderItem.module.css";
 
 const OrderItem = ({ title, description, price, id }) => {
-  const num = useRef();
   const amountContext = useContext(AmountContext);
+  //设置初次价格
+  useEffect(() => {
+    amountContext.initOrderMoney(id, price);
+  });
+
+  const num = useRef();
   const amountHandler = () => {
     if (+num.current.value > 0) {
       amountContext.addOrderNum(id, +num.current.value);
+      num.current.value = "";
     }
   };
   return (
