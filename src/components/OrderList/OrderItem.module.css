@@ -2,7 +2,8 @@
   width: 100%;
   justify-content: space-between;
   align-items: center;
-  padding: 1rem;
+  padding: 2rem;
+  border-bottom: 1px solid #ccc;
 }
 .order-item .order-info {
   max-width: 20rem;

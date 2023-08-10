@@ -19,6 +19,33 @@
   font-size: 1rem;
   cursor: pointer;
 }
+.cart-button:hover,
+.cart-button:active {
+  /* color: #2c0d00;s */
+  background-color: #ab2f18;
+  animation: bump 300ms ease-out;
+}
+.cart-button:hover .cart-num,
+.cart-button:active .cart-num {
+  color: #ab2f18;
+}
+@keyframes bump {
+  0% {
+    transform: scale(1);
+  }
+  10% {
+    transform: scale(0.9);
+  }
+  30% {
+    transform: scale(1.1);
+  }
+  50% {
+    transform: scale(1.15);
+  }
+  100% {
+    transform: scale(1);
+  }
+}
 .cart-button i {
   width: 2rem;
   height: 2rem;

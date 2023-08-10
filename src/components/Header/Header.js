@@ -7,9 +7,12 @@ import styles from "./Header.module.css";
 const Header = ({ setCargo }) => {
   const amountContext = useContext(AmountContext);
   const header = (
-    <Wrapper className={styles.header} onClick={() => setCargo(true)}>
+    <Wrapper className={styles.header}>
       <h1>订餐Demo</h1>
-      <Wrapper className={styles["cart-button"]}>
+      <Wrapper
+        className={`${styles["cart-button"]} ${styles.bump}`}
+        onClick={() => setCargo(true)}
+      >
         <i></i>
         <span>购物车</span>
         <div className={styles["cart-num"]}>

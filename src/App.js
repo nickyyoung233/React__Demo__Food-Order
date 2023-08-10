@@ -15,13 +15,13 @@ function App() {
       id: "food1",
     },
     {
-      title: "新疆牛肉拉面",
+      title: "牛肉拉面",
       description: "牛肉拉面简介",
       price: 68,
       id: "food2",
     },
     {
-      title: "地方康家燃面",
+      title: "康家燃面",
       description: "康家燃面简介",
       price: 48,
       id: "food3",
@@ -32,10 +32,27 @@ function App() {
       price: 88,
       id: "food4",
     },
+    {
+      title: "全麦鲜切面包",
+      description: "全麦鲜切面包简介",
+      price: 18,
+      id: "food5",
+    },
+    {
+      title: "麻辣小龙虾",
+      description: "麻辣小龙虾简介",
+      price: 98,
+      id: "food6",
+    },
+    {
+      title: "刀削面",
+      description: "刀削面简介",
+      price: 38,
+      id: "food7",
+    },
   ];
   const [showCargo, setCargo] = useState(false);
   const setCargoState = (isShowing) => {
-    console.log("in");
     setCargo(!!isShowing);
   };
 

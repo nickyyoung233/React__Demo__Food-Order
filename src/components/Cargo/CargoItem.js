@@ -2,6 +2,7 @@ import { useContext } from "react";
 import AmountContext from "../../context/amount-text";
 import Wrapper from "../UI/Wrapper";
 import Button from "../UI/Button";
+import Input from "../UI/Input";
 import styles from "./CargoItem.module.css";
 
 const CargoItem = ({ title, price, id }) => {
@@ -12,11 +13,15 @@ const CargoItem = ({ title, price, id }) => {
       <div className={styles["item-info"]}>
         <h4>{title}</h4>
         <Wrapper>
-          <p className={styles.price}>¥{price}</p>
-          <input
-            type="text"
-            value={`x${amountContext.orderNum[id]}`}
-            readOnly
+          <Input
+            labelClass={styles.price}
+            labelName={`¥${price}`}
+            inputs={{
+              className: styles.input,
+              type: "text",
+              value: `x${amountContext.orderNum[id]}`,
+              readOnly: true,
+            }}
           />
         </Wrapper>
       </div>

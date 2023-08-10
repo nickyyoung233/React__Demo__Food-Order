@@ -1,15 +1,31 @@
 .cargo {
-  position: absolute;
-  top: 15rem;
-  right: 50%;
-  transform: translateX(50%);
-  width: 50%;
-  padding: 1rem;
+  position: fixed;
+  top: 20vh;
+  left: 5%;
+  width: 90%;
+  background-color: #fff;
+  padding: 3rem;
   justify-content: center;
   flex-direction: column;
-  background-color: #fff;
   box-shadow: 0.2rem 0.2rem 0.5rem rgba(0, 0, 0, 0.5);
+  animation: slide-down 300ms ease-out forwards;
   z-index: 1;
+}
+@keyframes slide-down {
+  from {
+    opacity: 0;
+    transform: translateY(-3rem);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+@media (min-width: 768px) {
+  .cargo {
+    width: 40rem;
+    left: calc(50% - 20rem);
+  }
 }
 
 .cargo .buttons {
@@ -24,9 +40,10 @@
 }
 
 .backdrop {
-  position: absolute;
+  position: fixed;
   top: 0;
+  left: 0;
   width: 100%;
-  height: 110%;
+  height: 100vh;
   background-color: rgba(240, 193, 64, 0.5);
 }

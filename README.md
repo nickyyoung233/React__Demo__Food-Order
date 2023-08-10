@@ -17,7 +17,15 @@ const num = useRef();
 ## Q&A
 
 ❓ why the same level element no same height, backdrop-root set height 100% doesn't equal to the root
-❓ how and when to use useEffect
+❓ the usage of concat
+
+### how and when to use useEffect
+
+1. calling API
+2. states change
+3. ...side effect
+
+### Portals first param is the element, diff between JSX component`const backDrop=(..JSX component)` and HTML element`<BackDrop />`
 
 ### diff with space-around & space-between
 

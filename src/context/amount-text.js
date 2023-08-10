@@ -56,18 +56,17 @@ export const AmountContextProvider = ({ children }) => {
     });
   }, [orderNum, orderMoney]);
 
+  const contextValue = {
+    totalMoney: totalMoney,
+    totalAmount: totalAmount,
+    orderNum: orderNum,
+    orderMoney: orderMoney,
+    initOrderMoney: initOrderMoneyHandler,
+    addOrderNum: addOrderNumHandler,
+    declineOrderNum: declineOrderNumHandler,
+  };
   return (
-    <AmountContext.Provider
-      value={{
-        totalMoney: totalMoney,
-        totalAmount: totalAmount,
-        orderNum: orderNum,
-        orderMoney: orderMoney,
-        initOrderMoney: initOrderMoneyHandler,
-        addOrderNum: addOrderNumHandler,
-        declineOrderNum: declineOrderNumHandler,
-      }}
-    >
+    <AmountContext.Provider value={contextValue}>
       {children}
     </AmountContext.Provider>
   );
