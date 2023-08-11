@@ -7,6 +7,7 @@ import styles from "./CargoItem.module.css";
 
 const CargoItem = ({ title, price, id }) => {
   const amountContext = useContext(AmountContext);
+  const _item = amountContext.items.find((item) => item.id === id);
 
   return (
     <Wrapper className={styles["cargo-item"]}>
@@ -19,7 +20,7 @@ const CargoItem = ({ title, price, id }) => {
             inputs={{
               className: styles.input,
               type: "text",
-              value: `x${amountContext.orderNum[id]}`,
+              value: `x${_item.amount}`,
               readOnly: true,
             }}
           />
@@ -36,7 +37,14 @@ const CargoItem = ({ title, price, id }) => {
           className={styles.button}
           type="button"
           btnName="+"
-          onClick={() => amountContext.addOrderNum(id, 1)}
+          onClick={() =>
+            amountContext.addOrderNum({
+              id: id,
+              title: title,
+              amount: 1,
+              price: +price,
+            })
+          }
         />
       </Wrapper>
     </Wrapper>

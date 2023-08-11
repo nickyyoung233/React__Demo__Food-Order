@@ -9,22 +9,23 @@ import styles from "./Cargo.module.css";
 
 const Cargo = ({ setCargo, list }) => {
   const amountContext = useContext(AmountContext);
+  const hasItems = amountContext.totalAmount > 0 ? true : false;
   const cargo = (
     <Wrapper className={styles.cargo}>
-      {list
-        .filter((item) => {
-          return amountContext.orderNum[item.id] > 0;
-        })
-        .map((item) => {
-          return (
-            <CargoItem
-              key={item.id}
-              title={item.title}
-              price={item.price}
-              id={item.id}
-            />
-          );
-        })}
+      <Wrapper className={styles["cargo-items"]}>
+        {amountContext.items
+          .filter((item) => item.amount > 0)
+          .map((item) => {
+            return (
+              <CargoItem
+                key={item.id}
+                title={item.title}
+                price={item.price}
+                id={item.id}
+              />
+            );
+          })}
+      </Wrapper>
       <CargoBottom />
       <Wrapper className={styles.buttons}>
         <Button
@@ -33,7 +34,9 @@ const Cargo = ({ setCargo, list }) => {
           type="button"
           btnName="关闭"
         />
-        <Button className={styles.button} type="submit" btnName="下单" />
+        {hasItems && (
+          <Button className={styles.button} type="submit" btnName="下单" />
+        )}
       </Wrapper>
     </Wrapper>
   );

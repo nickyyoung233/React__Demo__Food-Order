@@ -1,4 +1,4 @@
-import { useRef, useContext, useEffect } from "react";
+import { useRef, useContext } from "react";
 import AmountContext from "../../context/amount-text";
 import Wrapper from "../UI/Wrapper";
 import Button from "../UI/Button";
@@ -7,16 +7,17 @@ import styles from "./OrderItem.module.css";
 
 const OrderItem = ({ title, description, price, id }) => {
   const amountContext = useContext(AmountContext);
-  // //设置初次价格
-  useEffect(() => {
-    amountContext.initOrderMoney(id, price);
-  }, [amountContext, id, price]);
 
-  const num = useRef();
+  const num = useRef("1");
   const amountHandler = () => {
     if (+num.current.value > 0) {
-      amountContext.addOrderNum(id, +num.current.value);
-      num.current.value = "";
+      amountContext.addOrderNum({
+        id: id,
+        title: title,
+        amount: +num.current.value,
+        price: +price,
+      });
+      num.current.value = "1";
     }
   };
   return (
@@ -34,11 +35,12 @@ const OrderItem = ({ title, description, price, id }) => {
             inputs={{
               className: styles.input,
               type: "number",
-              min: "0",
+              min: "1",
               max: "5",
               step: "1",
               id: id,
               ref: num,
+              defaultValue: "1",
             }}
           />
         </div>
