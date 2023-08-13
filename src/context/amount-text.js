@@ -2,6 +2,7 @@ import React, { useReducer } from "react";
 const AmountContext = React.createContext({
   totalMoney: 0,
   totalAmount: 0,
+  items: [],
   addOrderNum: () => {},
   declineOrderNum: () => {},
 });

@@ -19,14 +19,14 @@
   font-size: 1rem;
   cursor: pointer;
 }
-.cart-button:hover,
-.cart-button:active {
+.bump,
+.bump {
   /* color: #2c0d00;s */
   background-color: #ab2f18;
   animation: bump 300ms ease-out;
 }
-.cart-button:hover .cart-num,
-.cart-button:active .cart-num {
+.bump .cart-num,
+.bump .cart-num {
   color: #ab2f18;
 }
 @keyframes bump {
