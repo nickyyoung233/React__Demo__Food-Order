@@ -27,6 +27,10 @@ const num = useRef();
 
 ### Portals first param is the element, diff between JSX component`const backDrop=(..JSX component)` and HTML element`<BackDrop />`
 
-### diff with space-around & space-between
+### ❓diff with space-around & space-between
 
-### input why aligh with text & overflow the line
+### ❓input why aligh with text & overflow the line
+
+### use `Node` to write the JSON file for backend data
+
+`fs.writeFile('xxfile','someThing',()=>{})`

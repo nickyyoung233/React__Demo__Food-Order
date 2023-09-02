@@ -6,4 +6,17 @@
   margin-bottom: 10rem;
   padding: 3rem;
   box-shadow: 0.2rem 0.2rem 0.5rem rgba(0, 0, 0, 0.5);
+  animation-name: show-up;
+  animation-duration: 0.5s;
+}
+
+@keyframes show-up {
+  0% {
+    opacity: 0;
+    transform: translateY(5rem);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
 }

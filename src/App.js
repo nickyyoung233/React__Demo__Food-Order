@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useCallback, useEffect } from "react";
 import { AmountContextProvider } from "./context/amount-text";
 import Wrapper from "./components/UI/Wrapper";
 import Header from "./components/Header/Header";
@@ -7,50 +7,31 @@ import OrderList from "./components/OrderList/OrderList";
 import Cargo from "./components/Cargo/Cargo";
 
 function App() {
-  const orderList = [
-    {
-      title: "北海道寿司",
-      description: "寿司简介",
-      price: 48,
-      id: "food1",
-    },
-    {
-      title: "牛肉拉面",
-      description: "牛肉拉面简介",
-      price: 68,
-      id: "food2",
-    },
-    {
-      title: "康家燃面",
-      description: "康家燃面简介",
-      price: 48,
-      id: "food3",
-    },
-    {
-      title: "应季水果",
-      description: "应季水果简介",
-      price: 88,
-      id: "food4",
-    },
-    {
-      title: "全麦鲜切面包",
-      description: "全麦鲜切面包简介",
-      price: 18,
-      id: "food5",
-    },
-    {
-      title: "麻辣小龙虾",
-      description: "麻辣小龙虾简介",
-      price: 98,
-      id: "food6",
-    },
-    {
-      title: "刀削面",
-      description: "刀削面简介",
-      price: 38,
-      id: "food7",
-    },
-  ];
+  const [orderList, setOrderList] = useState([]);
+  const [isLoading, setIsLoading] = useState(true);
+  const [isError, setIsError] = useState();
+
+  const fetchData = useCallback(async () => {
+    const res = await fetch(
+      "https://food-order-b74c2-default-rtdb.asia-southeast1.firebasedatabase.app/orderList.json"
+    );
+    const data = await res.json();
+    console.log(res);
+    if (!res.ok || !data) {
+      setIsError(true);
+      setIsLoading(false);
+      // throw new Error("出错了");
+      return;
+    }
+    setOrderList(data);
+    setIsLoading(false);
+    setIsError(false);
+  }, []);
+
+  useEffect(() => {
+    fetchData();
+  }, [fetchData]);
+
   const [showCargo, setCargo] = useState(false);
   const setCargoState = (isShowing) => {
     setCargo(!!isShowing);
@@ -62,7 +43,9 @@ function App() {
 
       <Wrapper className="background">
         <Intro />
-        <OrderList list={orderList} />
+        {!isError && !isLoading && <OrderList list={orderList} />}
+        {!isError && isLoading && <p style={{ color: "#fff" }}>加载中...</p>}
+        {isError && !isLoading && <p style={{ color: "#fff" }}>暂无数据</p>}
       </Wrapper>
 
       {showCargo && <Cargo setCargo={setCargoState} list={orderList} />}
