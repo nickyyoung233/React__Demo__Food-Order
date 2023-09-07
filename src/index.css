@@ -28,7 +28,8 @@ body {
 }
 
 .background {
-  margin-top: 12rem;
+  margin-top: 12vh;
+  /* height: 100%; */
   flex-direction: column;
   align-items: center;
 }
